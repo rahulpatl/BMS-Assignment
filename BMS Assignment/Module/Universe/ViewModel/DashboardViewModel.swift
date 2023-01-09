@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DashboardViewModel {
+final class DashboardViewModel {
     //MARK: Closures
     var updateSegments: (([UniverseViewModel]) -> Void) = {_ in }
     var showAlert: ((String) -> Void) = {_ in }

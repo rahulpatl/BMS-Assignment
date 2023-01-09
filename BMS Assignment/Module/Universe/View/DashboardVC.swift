@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DashboardVC: UITabBarController, UITabBarControllerDelegate {
+final class DashboardVC: UITabBarController, UITabBarControllerDelegate {
     //MARK: Properties
     lazy var loader: UIActivityIndicatorView = {
         let loader = UIActivityIndicatorView()

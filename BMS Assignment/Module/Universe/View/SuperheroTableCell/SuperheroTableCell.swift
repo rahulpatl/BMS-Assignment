@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SuperheroTableCell: UITableViewCell {
+final class SuperheroTableCell: UITableViewCell {
     //MARK: Properties
     static let cellId = "SuperheroTableCell"
     @IBOutlet weak var viewParent: UIView!
@@ -17,7 +17,7 @@ class SuperheroTableCell: UITableViewCell {
     private var viewModel: SuperheroCellViewModel? {
         didSet {
             lblSuperhero.text = viewModel?.name
-            lblSuperhero.textColor = .black
+            lblSuperhero.textColor = .systemGray
             viewParent.backgroundColor = .clear
             if let isLeader = viewModel?.isLeader, isLeader {
                 viewParent.backgroundColor = .red.withAlphaComponent(0.8)
@@ -42,9 +42,9 @@ class SuperheroTableCell: UITableViewCell {
         imgSuperhero.image = nil
         self.viewModel = _viewModel
         if let url = URL(string: _viewModel.imageURL ?? "") {
-            imageDownloader = self.viewModel?.getImage(url: url, handler: { imageData in
+            imageDownloader = self.viewModel?.getImage(url: url, handler: { [weak self] imageData in
                 DispatchQueue.main.async {
-                    self.imgSuperhero.image = imageData ?? UIImage(systemName: "person")
+                    self?.imgSuperhero.image = imageData ?? UIImage(systemName: "person")
                 }
             })
         }

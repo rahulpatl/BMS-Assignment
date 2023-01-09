@@ -8,7 +8,7 @@
 import UIKit
 
 let imagesCache = NSCache<NSString, AnyObject>()
-class ImageDownloader {
+final class ImageDownloader {
     var queue : OperationQueue!
     var session : NetworkService!
     var operation: Operation?

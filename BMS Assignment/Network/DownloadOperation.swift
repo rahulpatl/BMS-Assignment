@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DownloadOperation : Operation {
+final class DownloadOperation : Operation {
     
     private var task : URLSessionDataTask!
     

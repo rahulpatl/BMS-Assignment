@@ -28,8 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func applyNavigationTheme() {
-        UINavigationBar.appearance().backgroundColor = .white
-        UINavigationBar.appearance().tintColor = .blue
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithOpaqueBackground()
+        navigationBarAppearance.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor : UIColor.white
+        ]
+        navigationBarAppearance.backgroundColor = UIColor.systemGray
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
     }
 }
 

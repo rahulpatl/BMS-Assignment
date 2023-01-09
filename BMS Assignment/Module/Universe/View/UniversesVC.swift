@@ -13,7 +13,7 @@ final class UniversesVC: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UINib(nibName: SuperheroTableCell.cellId, bundle: nil), forCellReuseIdentifier: SuperheroTableCell.cellId)
+        tableView.register(UINib(nibName: String(describing: SuperheroTableCell.self), bundle: nil), forCellReuseIdentifier: String(describing: SuperheroTableCell.self))
         return tableView
     }()
     
@@ -42,10 +42,10 @@ final class UniversesVC: UIViewController {
     private func setUpUI() {
         self.title = self.viewModel?.name
         self.view.addSubview(tableView)
-        tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 12).isActive = true
+        tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
         tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -12).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
     }
 }
 
