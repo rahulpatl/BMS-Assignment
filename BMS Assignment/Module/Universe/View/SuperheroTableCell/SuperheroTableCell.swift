@@ -44,7 +44,7 @@ final class SuperheroTableCell: UITableViewCell {
         if let url = URL(string: _viewModel.imageURL ?? "") {
             imageDownloader = self.viewModel?.getImage(url: url, handler: { [weak self] imageData in
                 DispatchQueue.main.async {
-                    self?.imgSuperhero.image = imageData ?? UIImage(systemName: "person")
+                    self?.imgSuperhero.image = imageData ?? UIImage(systemName: Constants.person)
                 }
             })
         }

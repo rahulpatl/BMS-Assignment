@@ -37,7 +37,7 @@ final class DashboardVC: UITabBarController, UITabBarControllerDelegate {
     }
     
     //MARK: Methods
-    func updateData() {
+    private func updateData() {
         viewModel.updateSegments = { [weak self] list in
             self?.updateSegment(models: list)
         }
@@ -63,7 +63,7 @@ final class DashboardVC: UITabBarController, UITabBarControllerDelegate {
         }
     }
     
-    func showAlertWith(message: String) {
+    private func showAlertWith(message: String) {
         DispatchQueue.main.async { [weak self] in
             self?.loader(startAnimating: false)
             let alert = UIAlertController(title: Constants.alert, message: message, preferredStyle: .alert)
@@ -74,7 +74,7 @@ final class DashboardVC: UITabBarController, UITabBarControllerDelegate {
         }
     }
     
-    func loader(startAnimating: Bool) {
+    private func loader(startAnimating: Bool) {
         if startAnimating {
             self.view.addSubview(loaderView)
             loader.startAnimating()

@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func applyNavigationTheme() {
+        tabBarAppearance()
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBarAppearance.configureWithOpaqueBackground()
         navigationBarAppearance.titleTextAttributes = [
@@ -37,6 +38,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().standardAppearance = navigationBarAppearance
         UINavigationBar.appearance().compactAppearance = navigationBarAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+    }
+    
+    private func tabBarAppearance() {
+        let tabBarAppearence = UITabBarItem.appearance()
+        let attributedDict = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
+        tabBarAppearence.titlePositionAdjustment =  .init(horizontal: 0, vertical: -10)
+        tabBarAppearence.setTitleTextAttributes(attributedDict, for: .normal)
+        tabBarAppearence.setTitleTextAttributes(attributedDict, for: .selected)
     }
 }
 
