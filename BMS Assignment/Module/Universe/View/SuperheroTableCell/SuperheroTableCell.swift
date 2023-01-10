@@ -13,15 +13,19 @@ final class SuperheroTableCell: UITableViewCell {
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var imgSuperhero: UIImageView!
     @IBOutlet weak var lblSuperhero: UILabel!
+    @IBOutlet weak var lblLeader: UILabel!
     private var imageDownloader: ImageDownloader?
     private var viewModel: SuperheroCellViewModel? {
         didSet {
             lblSuperhero.text = viewModel?.name
             lblSuperhero.textColor = .systemGray
             viewParent.backgroundColor = .clear
+            lblLeader.isHidden = true
             if let isLeader = viewModel?.isLeader, isLeader {
                 viewParent.backgroundColor = .red.withAlphaComponent(0.8)
                 lblSuperhero.textColor = .white
+                lblLeader.isHidden = false
+                lblLeader.textColor = .white
             }
         }
     }
